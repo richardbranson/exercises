@@ -16,7 +16,7 @@ end
 
 def get_story
   puts "Please give me a story title:"
-  gets.strip
+  gets.strip.downcase
 end
 
 def get_upvotes
