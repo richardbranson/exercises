@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 [
   { title: "Oh my carrots!" , upvotes: 7, category: "farming" },
   { title: "Purrrrrr", upvotes: 5, category: "cats" },
   { title: "Bacon!", upvotes: 4, category: "pigs" }
 ]
 
+=======
+require 'pp'
+>>>>>>> fb980cfc5105a239ce607be1ccb5914e60f24270
 # Step 1: Working with Arrays and Hashes
 
 # Copy your solution from conditional_teddit.rb.
@@ -51,12 +55,13 @@ end
 # Add the hash to an array called stories and print "Story: Monkeys thank mayor for flounder tooth necklace, Category: (Teeth), Current Upvotes: 1"
 # Using the stories array
 # Test your cat, pig, and candy upvote conditional logic.
-# (cats get double upvotes, pigs - half of upvotes, candy gest +1 upvote)
+# (cats get double upvotes, pigs - half of upvotes, candy gets +1 upvote)
 #
 # Step 2: Adding Loops
 # Use a loop, so that your program continues to ask a user for stories until they chose to quit. ("Would you like to add another story? Enter 'y' or 'n'")
 # Once the user is finished with entering their stories, use .each to print each story in the stories array.
 #
+<<<<<<< HEAD
 #
 # The actuall thingo
 
@@ -66,3 +71,58 @@ upvotes = get_upvotes
 category = get_category
 
 print_story(story, upvotes, category)
+=======
+
+
+def get_story_from_user
+  puts "Please give story title:"
+  title = gets.strip.chomp
+  puts "Please give category:"
+  category = gets.strip.chomp
+  puts "Please give upvotes:"
+  upvotes = gets.strip.chomp
+
+  {
+    title: title,
+    upvotes: upvotes,
+    category: category
+  }
+end
+
+def print_story(h)
+  story = h[:story]
+  category = h[:category]
+  upvotes = h[:upvotes].to_i.to_f
+  if h[:category] == 'cat'
+    upvotes *= 2
+  elsif h[:category] == 'pig'
+    upvotes /= 2
+  elsif h[:category] == 'candy'
+    upvotes += 1
+  end
+
+  puts "Story: #{story}. Upvotes: #{upvotes}. Category #{category}"
+end
+
+def continue?
+  puts "Do you want to continue? yes/no"
+  gets.strip.chomp == "yes"
+end
+
+
+
+puts "hello!"
+puts "welcome to teddit"
+
+stories = []
+
+stories << get_story_from_user
+while continue?
+  stories << get_story_from_user
+end
+
+puts "ok printing stories!"
+stories.each { |s| print_story(s) }
+
+pp stories
+>>>>>>> fb980cfc5105a239ce607be1ccb5914e60f24270
