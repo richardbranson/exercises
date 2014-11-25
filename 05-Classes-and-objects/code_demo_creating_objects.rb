@@ -34,10 +34,49 @@ def grade_status(student)
   end
 end
 
-puts "#{jimmy[:name]} has #{grade_status(jimmy)} #{jimmy[:course]}"
-puts "#{pepe[:name]} has #{grade_status(pepe)} #{pepe[:course]}"
-puts "#{edward[:name]} has #{grade_status(edward)} #{edward[:course]}"
-
+# puts "#{jimmy[:name]} has #{grade_status(jimmy)} #{jimmy[:course]}"
+# puts "#{pepe[:name]} has #{grade_status(pepe)} #{pepe[:course]}"
+# puts "#{edward[:name]} has #{grade_status(edward)} #{edward[:course]}"
+#
 
 ###############################################################################
 # Start coding along here
+
+
+class Student
+  attr_accessor :name, :major, :course, :grade
+
+  def initialize(name, major, course, grade)
+    @name = name
+    @major = major
+    @course = course
+    @grade = grade
+  end
+
+  def grade_status
+    if @grade == "F"
+      "failed"
+    elsif [ "D", "E"].include?(@grade) && @major == @course
+      "failed"
+    else
+      "passed"
+    end
+  end
+
+  def summary
+    puts "#{@name} has #{grade_status} in #{@major}"
+  end
+end
+
+jimmy = Student.new("Jimmy", "Maths", "Maths", "A")
+
+pepe = Student.new("Pepe", "Physics", "Maths", "F")
+
+jimmy.summary
+pepe.summary
+
+pepe.grade = "C"
+
+
+pepe.summary
+

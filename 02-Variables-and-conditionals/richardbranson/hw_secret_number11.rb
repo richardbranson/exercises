@@ -75,15 +75,6 @@ give_outcome_for(guess, secret_number)
 number_of_guesses = decrement(number_of_guesses)
 
 
-
-
-
-
-
-
-
-
-
 	
 # puts "#{player_name} please enter your first guess..."
 # guess = gets.chomp
